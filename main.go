@@ -20,8 +20,12 @@ func getIndexHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/plain")
 	returnStatus := http.StatusOK
 	w.WriteHeader(returnStatus)
-	message := fmt.Sprintf("Hello %s!", r.UserAgent())
-	w.Write([]byte(message))
+	message := fmt.Sprintf("Good morning %s!", r.UserAgent())
+	write, err := w.Write([]byte(message))
+	if err != nil {
+		return
+	}
+	print(write)
 }
 
 func main() {
