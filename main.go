@@ -37,7 +37,7 @@ func getIndexHandler(w http.ResponseWriter, r *http.Request) {
 	returnStatus := http.StatusOK
 	// Set the HTTP status code to 200 (OK)
 	w.WriteHeader(returnStatus)
-	message := fmt.Sprintf("Hi  %s!", r.UserAgent())
+	message := fmt.Sprintf("Hello  %s!", r.UserAgent())
 	// Write a greeting message to the response writer
 	_, err := w.Write([]byte(message))
 	if err != nil {
